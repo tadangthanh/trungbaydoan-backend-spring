@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: project-display
+  profiles:
+    active: dev

@@ -1,0 +1,47 @@
+server:
+  port: 8080
+spring:
+  allowed:
+    origin: ${ALLOWED_ORIGIN:http://localhost:3000}
+  config:
+    activate:
+      on-profile: dev
+  cloud:
+    azure:
+      storage:
+        blob:
+          container-name: trungbaydoan
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:${MYSQL_PORT:3306}/trungbaydoan?createDatabaseIfNotExist=true&useUnicode=yes&characterEncoding=UTF-8&useSSL=true
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:}
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    generate-ddl: true
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
+      connect-timeout: 3000
+
+
+  cache:
+    type: redis
+    redis:
+      cache-null-values: true
+      time-to-live: 3600000
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: -1
+      max-request-size: -1
+      file-size-threshold: 2MB
+azure:
+  blob-storage:
+    connection-string: DefaultEndpointsProtocol=https;AccountName=tathanhmycv;AccountKey=dhVEM5rS5NLnFLggYKZ8l8EYVuzwF9tjDlKSNUWw0gifbxuTjjms/dGi0GyzEK3js5PUXlMB9H0I+AStrFjLRg==;EndpointSuffix=core.windows.net
+    account-key:
+    account-name:
+
